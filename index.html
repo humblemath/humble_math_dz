@@ -1,416 +1,169 @@
 <!DOCTYPE html>
-<html dir="rtl" lang="ar">
-  <head>
+<html lang="ar" dir="rtl">
+<head>
     <meta charset="UTF-8">
-  <meta http-equiv="Content-Language" content="ar">
-  <meta name="description" content="تحليل وحل التمارين الرياضيات الخاصة بالطلبة الجزائريين في البكالوريا، مع الحلول المطبوعة والشرح الصوتي والفيديو التعليمي.">
-  <meta name="keywords" content="حلول تمارين رياضيات بكالوريا، الجزائر، الطلبة الجزائريين، البكالوريا، الرياضيات، الحلول المطبوعة، الشرح الصوتي، الفيديو التعليمي">
-  <!-- Other meta tags and content -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Humble Math Dz</title>
-    <link rel="icon" type = "image/x-icon"  href="imgs/humbleico.png">
-    <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/elzero.css" />
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="css/all.min.css" />
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet" />
-  </head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-C744NYY0B2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقع الرياضيات - Humble Math Dz</title>
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          packages: ['base', 'ams', 'noerrors', 'noundefined', 'color']
+        },
+        svg: {
+          fontCache: 'global'
+        }
+      };
+      </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        /* Reset default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  gtag('config', 'G-C744NYY0B2');
-</script>
-  <body>
-    <!-- Start Header -->
-    <div class="header" id="header">
-      <div class="container">
-        <a href="#" class="logo">Humble Math Dz</a>
-            </div>
-            <!-- End Megamenu -->
-          </li>
-        </ul>
-      </div>
+        html, body {
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            direction: rtl; /* Right to Left text support */
+        }
+
+        /* Flexbox for sticky footer */
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-content {
+            flex: 1;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: right; /* Aligning site name to the right for RTL */
+            font-size: 1.5em;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Adding horizontal scrollbar to the container */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            overflow-x: auto; /* Allow horizontal scroll */
+            white-space: nowrap; /* Prevent text from wrapping */
+            text-align: right; /* Right-align text */
+        }
+
+        /* Margins for small screens */
+        .container p {
+            line-height: 1.6;
+            margin: 20px 0;
+        }
+
+        .container h1 {
+            color: #4CAF50;
+            font-size: 2em;
+        }
+
+        /* Responsive design with padding adjustments */
+        @media (max-width: 768px) {
+            header {
+                font-size: 1.2em;
+                padding: 15px;
+            }
+
+            .container {
+                margin: 20px 5%;
+                padding: 15px;
+            }
+
+            .container h1 {
+                font-size: 1.8em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                font-size: 1em;
+                padding: 10px;
+            }
+
+            .container {
+                margin: 15px 10px;
+                padding: 10px;
+            }
+
+            .container h1 {
+                font-size: 1.5em;
+            }
+
+            .container p {
+                font-size: 0.9em;
+            }
+
+            footer {
+                padding: 5px;
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        Humble Math Dz
+    </header>
+
+    <div class="main-content">
+        <div class="container">
+          $g$ دالة عددية معرفة على $\  $ $]-\infty;-1[\cup]-1;+\infty[$ بـ : $\  $ $g(x)=\dfrac{2x+3}{x+1}$<br><br>
+
+          $(C_{g})$ تمثيلها البياني في المستوى المنسوب الى المعلم المتعامد و المتجانس $(O;\vec{i},\vec{j})$<br><br>
+
+          $/1$ عيّن العددين الحقيقين $a$ و $b$ بحيث: $\  $ $g(x)=a+\dfrac{b}{x+1}$<br><br>
+
+          $/2$ استنتج أنّ $(C_{g})$ هو صورة منحنى دالة مرجعية بانسحاب يطلب تعيين شعاعه<br><br>
+
+          $/3$ انشئ $(C_{g})$<br><br>
+
+          $/4$ اشرح كيفية رسم المنحنى $(C_{h})$ اعتمادا على $(C_{g})$ حيث:<br><br>
+
+          $(C_{h})$ التمثيل البياني في المستوى المنسوب الى المعلم السابق للدالة $\  $ $h:x \mapsto |g(x)|$<br><br>
+
+          $/5$ انشئ $(C_{h})$<br>
+        </div>
+        <div class="container">
+          $/1$
+          من أجل كل $\  $ $x \in \mathbb{R}-\{ -1 \}$ :<br><br>
+
+          \[g(x)=\dfrac{2x+3}{x+1}=\dfrac{2x+2+1}{x+1}=\dfrac{2x+2}{x+1}+\dfrac{1}{x+1}=2+\dfrac{1}{x+1}\]<br>
+
+          اذا $\  $ $a=2$ و $\  $ $b=1$<br><br>
+
+          
+        </div>
+        </div>
     </div>
-    <!-- End Header -->
-    <!-- Start Landing -->
-    <div class="landing">
-      <div class="container">
-        <div class="text">
-          <h1>تمارين رياضيات مع الحلّ المفصّل </h1>
-          <p>
-            تجدون على موقعنا تمارين مرفقة بالحلّ المفصّل في مادة الرياضيات لشعبة علوم تجريبية ، رياضيات ، تقني رياضي للسنة الثالثة ثانوي على غرار :<br>
-            تمارين حول الاشتقاقية مع الحلّ للتحميل بصيغة pdf <br>
-            تمارين حول الدوال المثلثية، الصمّاء، الأسية، اللوغاريتمية للتحميل بصيغة pdf<br>
-            تمارين حول المتتاليات اضافة الى تمارين بكالوريات سابقة جزائرية و أجنبية للتحميل بصيغة pdf<br>
-                      </p>
-        </div>
-        <div class="image">
-          <img src="imgs/landingimage.jpg" alt="" />
-        </div>
-      </div>
-      <a href="#articles" class="go-down">
-        <i class="fas fa-angle-double-down fa-2x"></i>
-      </a>
-    </div>
-    <!-- End Landing -->
-    <!-- Start Articles -->
-    <div class="articles" id="articles">
-      <h2 class="main-title">المواضيع</h2>
-      <div class="container">
-        <div class="box">
-          <img src="imgs/img18.jpg" alt="" />
-          <div class="content">
-            <h3>
-           الدوال اللوغاريتمية
-            </h3>
-            <p>
-              تمرين حول الدالة اللوغاريتمية من بكالوريا تونس لسنة 2021 مرفق بالحلّ المفصَّل
-            </p>
-          </div>
-          <div class="info">
-            <a href="https://drive.google.com/file/d/1D3-qsOuTyLiJw9RJyl5FspkXwgi3eXrZ/view">
-              للقراءة أو التحميل 
-            </a>
-            <i class="fa fa-download"></i>
-          </div>
-        </div>
-        <div class="box">
-          <img src="imgs/img17.jpg" alt="" />
-          <div class="content">
-            <h3>
-              الدوال الأسية و التكامل
-            </h3>
-            <p>
-              تمرين حول الدالة الأسية اضافة الى تمرين حول التكامل التمارين مرفقة بالحلّ المفصَّل
-            </p>
-          </div>
-          <div class="info">
-            <a href="https://drive.google.com/file/d/1cZE_IcF9TeoIfTkDPIBec7yea9lXDsc9/view">
-              للقراءة أو التحميل 
-            </a>
-            <i class="fa fa-download"></i>
-          </div>
-        </div>
-        <div class="box">
-          <img src="imgs/img13.jpg" alt="" />
-          <div class="content">
-            <h3>
-               الدوال اللوغاريتمية و المتتاليات
-            </h3>
-            <p>
-              3 تمارين مرفقة بالحلّ المفَصَّل
-            </p>
-          </div>
-          <div class="info">
-            <a href="https://drive.google.com/file/d/1BcAJPQBHVHVoksCWzxfhP9lpyUGBoI6l/view">
-              للقراءة أو التحميل 
-            </a>
-            <i class="fa fa-download"></i>
-          </div>
-        </div>
-        <div class="box">
-          <img src="imgs/img12.jpg" alt="" />
-          <div class="content">
-            <h3>
-              الدوال الأسية و اللوغاريتمية
-            </h3>
-            <p>موضوع من اعداد الاستاذ خالد بخاخشة صاحب صفحة أكاديمية الرياضيات مرفق بالحلّ المفصَّل من اعدادنا نحن</p>
-          </div>
-          <div class="info">
-            <a href="https://drive.google.com/file/d/1fw1KvVHilZI8fx_8ZtCgE8OC4rIZc0yh/view">
-              للقراءة أو التحميل 
-            </a>
-            <i class="fa fa-download"></i>
-          </div>
-        </div>
-        <div class="box">
-          <img src="imgs/img11.jpg" alt="" />
-          <div class="content">
-            <h3>
-              الدوال الأسية و اللوغاريتمية
-            </h3>
-            <p>موضوع من اعداد الاستاذ خالد بخاخشة صاحب صفحة أكاديمية الرياضيات مرفق بالحلّ المفصَّل من اعدادنا نحن</p>
-          </div>
-          <div class="info">
-            <a href="https://drive.google.com/file/d/1Ws4qzcMTvUFhJyBdJWG4FcrgYpoRTC7i/view">
-              للقراءة أو التحميل 
-            </a>
-            <i class="fa fa-download"></i>
-          </div>
-        </div>
-        <div class="box">
-          <img src="imgs/img10.jpg" alt="" />
-          <div class="content">
-            <h3>
-              الدوال الأسية و المتتاليات
-           </h3>
-           <p>
-            تمرين حول الدالة الأسية اضافة الى تمرين حول المتتاليات التمارين مرفقة بالحلّ المفصَّل
-          </p>
-          </div>
-          <div class="info">
-            <a href="https://drive.google.com/file/d/1zXFL4cP6SBd21X3e2Xti-1QnE88rl6fC/view">
-              للقراءة أو التحميل 
-            </a>
-            <i class="fa fa-download"></i>
-          </div>
-        </div>
-        <div class="box">
-          <img src="imgs/img9.jpg" alt="" />
-          <div class="content">
-            <h3>
-              الدوال اللوغاريتمية و المتتاليات
-           </h3>
-           <p>
-            تمرين حول الدالة اللوغاريتمية اضافة الى تمرين حول المتتاليات التمارين مرفقة بالحلّ المفصَّل
-          </p>
-          </div>
-          <div class="info">
-            <a href="https://drive.google.com/file/d/1aQJbicvz8fjR7HnJzv4kKLt_snqFaujx/view">
-              للقراءة أو التحميل 
-            </a>
-            <i class="fa fa-download"></i>
-          </div>
-        </div>
-        <div class="box">
-          <img src="imgs/img8.jpg" alt="" />
-          <div class="content">
-            <h3>
-              الدوال الأسية و المتتاليات
-           </h3>
-           <p>
-            تمرين حول الدالة الأسية اضافة الى تمرين حول المتتاليات التمارين مرفقة بالحلّ المفصَّل
-          </p>
-          </div>
-          <div class="info">
-            <a href="https://drive.google.com/file/d/1eFeLjf2vRTLc_jzy_v-I5lhzjTb1Aur2/view">
-              للقراءة أو التحميل 
-            </a>
-            <i class="fa fa-download"></i>
-          </div>
-        </div>
-        <div class="box">
-          <img src="imgs/img14.jpg" alt="" />
-          <div class="content">
-            <h3>
-              الدوال الأسية 
-           </h3>
-           <p>
-            تمارين حول الدالة الأسية مرفقة بالحلّ المفصَّل
-          </p>
-          </div>
-          <div class="info">
-            <a href="https://drive.google.com/file/d/15UmejKQeOSXlWRUHszUOUkawMLX7oIus/view">
-              للقراءة أو التحميل 
-            </a>
-            <i class="fa fa-download"></i>
-          </div>
-        </div>
-        <div class="box">
-          <img src="imgs/img15.jpg" alt="" />
-          <div class="content">
-            <h3>
-              الدوال الأسية 
-           </h3>
-           <p>
-            تمارين حول الدالة الأسية مرفقة بالحلّ المفصَّل
-          </p>
-          </div>
-          <div class="info">
-            <a href="https://drive.google.com/file/d/1gH6YE9ejJhPeEd3J0UVERELluFxwDLso/view">
-              للقراءة أو التحميل 
-            </a>
-            <i class="fa fa-download"></i>
-          </div>
-        </div>
-        <div class="box">
-          <img src="imgs/img16.jpg" alt="" />
-          <div class="content">
-            <h3>
-              الدوال الأسية 
-           </h3>
-           <p>
-            تمارين حول الدالة الأسية مرفقة بالحلّ المفصَّل
-          </p>
-          </div>
-          <div class="info">
-            <a href="https://drive.google.com/file/d/1c5TjqufRlboYJJt1Jz4idCfVpiYB0qDP/view">
-              للقراءة أو التحميل 
-            </a>
-            <i class="fa fa-download"></i>
-          </div>
-        </div>
-        <div class="box">
-          <img src="imgs/img7.jpg" alt="" />
-          <div class="content">
-            <h3>
-            دراسة دالة كثير حدود من الدرجة الثالثة
-            </h3>
-            <p>موضوع من اعداد الاستاذ خالد بخاخشة صاحب صفحة أكاديمية الرياضيات مرفق بالحلّ المفصَّل من اعدادنا نحن</p>
-          </div>
-          <div class="info">
-            <a href="https://drive.google.com/file/d/1bYejQYlmvSarq6L_2_Ik6lpky_V8TFDa/view">
-              للقراءة أو التحميل 
-            </a>
-            <i class="fa fa-download"></i>
-          </div>
-        </div>
-        <div class="box">
-          <img src="imgs/img6.jpg" alt="" />
-          <div class="content">
-            <h3>
-              دراسة دالة ناطقة اضافة الى دراسة دالة صمّاء
-              </h3>
-              <p>موضوع من اعداد الاستاذ خالد بخاخشة صاحب صفحة أكاديمية الرياضيات مرفق بالحلّ المفصَّل من اعدادنا نحن</p>
-          </div>
-          <div class="info">
-            <a href="https://drive.google.com/file/d/17V6GoGSlf3o7lEvOqA2PXSMHXpotOm2s/view">
-              للقراءة أو التحميل 
-            </a>
-            <i class="fa fa-download"></i>
-          </div>
-        </div>
-        <div class="box">
-          <img src="imgs/img5.jpg" alt="" />
-          <div class="content">
-            <h3>
-          دراسة دالة معرفة بدستور يشمل القيمة المطلقة اضافة لدالة مثلثية و دالة صمّاء
-              </h3>
-              <p>موضوع من اعداد الاستاذ خالد بخاخشة صاحب صفحة أكاديمية الرياضيات مرفق بالحلّ المفصَّل من اعدادنا نحن</p>
-          </div>
-          <div class="info">
-            <a href="https://drive.google.com/file/d/13W26c12DOAINlat1jAKBWWfus3LOcaNc/view">
-              للقراءة أو التحميل 
-            </a>
-            <i class="fa fa-download"></i>
-          </div>
-        </div><div class="box">
-          <img src="imgs/img4.jpg" alt="" />
-          <div class="content">
-            <h3>
-              سلسلة تمارين حول الدوال العددية 
-            </h3>
-            <p>
-تمارين حول الدوال العددية : ناطقة ، كثيرة حدود ، ...<br>
-التمارين مرفقة بالحلّ المفصَّل
-            </p>
-          </div>
-          <div class="info">
-            <a href="https://drive.google.com/file/d/1bR_gp8C0nV_UAKDjUca-lV5UizHclePI/view">
-              للقراءة أو التحميل 
-            </a>
-            <i class="fa fa-download"></i>
-          </div>
-        </div><div class="box">
-          <img src="imgs/img3.jpg" alt="" />
-          <div class="content">
-            <h3>
-              سلسلة تمارين حول الدوال العددية 
-            </h3>
-            <p>
-تمارين حول الدوال العددية : ناطقة ، كثيرة حدود ، ...<br>
-التمارين مرفقة بالحلّ المفصَّل
-            </p>
-          </div>
-          <div class="info">
-            <a href="https://drive.google.com/file/d/1B9GlkuxClG9XM9BRG8GCDw-Ob3rcuS6y/view">
-            للقراءة أو التحميل 
-          </a>
-          <i class="fa fa-download"></i>
-          </div>
-        </div><div class="box">
-          <img src="imgs/img2.jpg" alt="" />
-          <div class="content">
-            <h3>
-              سلسلة تمارين حول الدوال العددية 
-            </h3>
-            <p>
-تمارين حول الدوال العددية : ناطقة ، كثيرة حدود ، ...<br>
-التمارين مرفقة بالحلّ المفصَّل
-            </p>
-          </div>
-          <div class="info">
-            <a href="https://drive.google.com/file/d/1SI4sJoYPirVp2seyFudLizpmUNn3we2I/view">
-              للقراءة أو التحميل 
-            </a>
-            <i class="fa fa-download"></i>
-          </div>
-        </div><div class="box">
-          <img src="imgs/img1.jpg" alt="" />
-          <div class="content">
-            <h3>
-              سلسلة تمارين حول الدوال العددية 
-            </h3>
-            <p>
-تمارين حول الدوال العددية : ناطقة ، كثيرة حدود ، ...<br>
-التمارين مرفقة بالحلّ المفصَّل
-            </p>
-          </div>
-          <div class="info">
-            <a href="https://drive.google.com/file/d/19qM3FjkCSZJ6uvpKjsTsyou5pp9Zz4Dh/view">
-              للقراءة أو التحميل 
-            </a>
-            <i class="fa fa-download"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="spikes"></div>
-    <!-- End Articles -->
-    <!-- Start Footer -->
-    <div class="footer">
-      <div class="container">
-        <div class="box">
-          <h3>Humble Math Dz</h3>
-          <ul class="social">
-            <li>
-              <a href="https://www.facebook.com/HumbleMathDz/" class="facebook">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-            </li>
-            <li>
-              <a href="https://www.instagram.com/humblemathdz/" class="instagram">
-                <i class="fab fa-instagram"></i>
-              </a>
-            </li>
-            <li>
-              <a href="https://www.youtube.com/channel/UCFdKpbM5YBXepVTOYZKQ2ng" class="youtube">
-                <i class="fab fa-youtube"></i>
-              </a>
-            </li>
-          </ul>
-          <p class="text">
-            منذ 2020 ونحن ننشر تمارين مرفقة بالحلول في مادة الرياضيات للطور الثانوي
-          </p>
-        </div>
-        <div class="box">
-          <div class="line">
-            <i class="fas fa-map-marker-alt fa-fw"></i>
-            <div class="info">
-              وهران الجزائر
-            </div>
-          </div>
-          <div class="line">
-            <i class="fas fa-phone-volume fa-fw"></i>
-            <div class="info">
-              <span>
-                194 161 554 213 +
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <p class="copyright"> Humble Math Dz &#169;</p>
-    </div>
-    <!-- End Footer -->
-    <script src="js/main.js"></script>
-  </body>
+
+    <footer>
+        © 2024 Humble Math Dz
+    </footer>
+
+</body>
 </html>
