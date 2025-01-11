@@ -143,18 +143,18 @@
       left: 50%; 
       transform: translate(-50%, -50%);
       pointer-events: none; 
-      font-weight: lighter; 
+      font-weight: normal; 
       color: #008080; 
       white-space: nowrap; 
       z-index: 1000;
       user-select: none;
-      opacity: 0.1;
+      opacity: 0.2;
       font-size: 8rem; /* Default for large screens */
     }
     /* Decrease watermark size for smaller screens */
     @media (max-width: 1200px) {
       .watermark {
-        font-size: 5rem;
+        font-size: 6rem;
       }
     }
     @media (max-width: 768px) {
@@ -164,7 +164,7 @@
     }
     @media (max-width: 480px) {
       .watermark {
-        font-size: 1.5rem;
+        font-size: 2rem;
       }
     }
 
@@ -236,6 +236,23 @@
       <li data-e="1">تمرين رقم 1</li>
       <li data-e="2">تمرين رقم 2</li>
       <li data-e="3">تمرين رقم 3</li>
+      <li data-e="4">تمرين رقم 4</li>
+      <li data-e="5">تمرين رقم 5</li>
+      <li data-e="6">تمرين رقم 6</li>
+      <li data-e="7">تمرين رقم 7</li>
+      <li data-e="8">تمرين رقم 8</li>
+      <li data-e="9">تمرين رقم 9</li>
+      <li data-e="10">تمرين رقم 10</li>
+      <li data-e="11">تمرين رقم 11</li>
+      <li data-e="12">تمرين رقم 12</li>
+      <li data-e="13">تمرين رقم 13</li>
+      <li data-e="14">تمرين رقم 14</li>
+      <li data-e="15">تمرين رقم 15</li>
+      <li data-e="16">تمرين رقم 16</li>
+      <li data-e="17">تمرين رقم 17</li>
+      <li data-e="18">تمرين رقم 18</li>
+      <li data-e="19">تمرين رقم 19</li>
+      <li data-e="20">تمرين رقم 20</li>
     </ul>
   </div>
 
@@ -292,9 +309,9 @@
 
     // Example data
     var data={
-      "1":{t:"تمرين رقم 1",e:["images/ex1_1.jpg"],s:["images/ex1_sol1.jpg"]},
+      "1":{t:"تمرين رقم 1",e:["images/ex1_1.jpg"],s:["images/ex1_sol1.jpg","images/ex1_sol2.jpg","images/ex1_sol3.jpg"]},
       "2":{t:"تمرين رقم 2",e:["images/ex2.jpg"],s:["images/ex2_sol1.png"]},
-      "3":{t:"تمرين رقم 3",e:["images/ex3_1.jpg"],s:["images/ex3_sol1.jpg"]}
+      "3":{t:"تمرين رقم 3",e:["images/ex3_1.jpg"],s:["images/ex3_sol1.png"]}
     };
 
     // Load exercise
@@ -317,7 +334,7 @@
             +solHtml
             +'</div>';
         } else {
-          main.innerHTML="<p>لا توجد بيانات لهذا التمرين.</p>";
+          main.innerHTML="<p>سنرفع هذا التمرين عن قريب.</p>";
         }
         sp.classList.remove("open");
       });
