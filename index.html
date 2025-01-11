@@ -1,235 +1,328 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>A4 Images Gallery - Bac Math</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <!-- Example minified CSS/JS references can be integrated here. -->
+  <title>Humble Math Dz (Secure Demo - Responsive Watermark)</title>
 
-        body {
-            font-family: 'Helvetica', Arial, sans-serif;
-            background-color: #f0f2f5;
-            direction: rtl; /* Right-to-left layout */
-            padding: 20px;
-            position: relative;
-        }
+  <!-- Font Awesome (if you need icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
-        .gallery-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
-            width: 100%;
-            max-width: 1400px;
-        }
+  <style>
+    /* Basic reset */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif;
+    }
 
-        .image-card {
-            background-color: white;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid #dcdbdb;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
+    body {
+      display: flex; flex-direction: column; min-height: 100vh; background: #f5f5f5; color: #333;
+      /* Prevent text selection in many browsers (not foolproof) */
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
 
-        .image-card h3 {
-            font-size: 16px;
-            margin: 10px 0;
-            color: #333;
-        }
+    header {
+      background: linear-gradient(90deg, #008080, #20b2aa);
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    }
+    header h1 {
+      margin: 0; font-size: 2rem; font-weight: 700;
+    }
 
-        .image-card img {
-            width: 100%;
-            height: auto;
-            border-bottom: 1px solid #dcdbdb;
-            border-top-left-radius: 12px;
-            border-top-right-radius: 12px;
-        }
+    #tb {
+      position: absolute; 
+      right: 1rem; 
+      top: 1rem; 
+      background: #006666; 
+      border: none; 
+      font-size: 1.6rem;
+      color: #fff; 
+      cursor: pointer; 
+      padding: 0.5rem 0.7rem; 
+      border-radius: 50%; 
+      transition: background-color 0.3s;
+    }
+    #tb:hover {
+      background-color: #20b2aa;
+    }
 
-        .bottom-bar {
-            display: flex;
-            justify-content: space-around;
-            padding: 10px;
-            background-color: #f7f7f7;
-            border-bottom-left-radius: 12px;
-            border-bottom-right-radius: 12px;
-            border-top: 1px solid #e0e0e0;
-        }
+    /***********************
+     * Side Panel
+     ***********************/
+    #sp {
+      position: fixed;
+      top: 0;
+      right: -250px;
+      width: 250px;
+      height: 100%;
+      background-color: #fafafa;
+      box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+      padding: 1rem;
+      transition: right 0.3s ease-in-out;
+      overflow-y: auto;
+      z-index: 999;
+    }
+    #sp.open {
+      right: 0;
+    }
+    #sp h2 {
+      text-align: center; 
+      font-weight: 600; 
+      color: #008080;
+      margin-bottom: 1rem;
+    }
+    #sp ul {
+      list-style: none; 
+      padding: 0;
+    }
+    #sp li {
+      margin-bottom: 1rem; 
+      cursor: pointer; 
+      padding: 0.5rem; 
+      border-radius: 5px; 
+      transition: background-color 0.2s, transform 0.2s;
+      font-size: 1rem; 
+      color: #333; 
+      text-align: center;
+    }
+    #sp li:hover {
+      background-color: #e0f0f0; 
+      transform: translateX(-3px);
+    }
 
-        .action-btn {
-            display: flex;
-            align-items: center;
-            color: #606770;
-            font-size: 14px;
-            cursor: pointer;
-        }
+    /***********************
+     * Main Content
+     ***********************/
+    main {
+      flex: 1;
+      padding: 1.5rem;
+      margin: 1rem auto;
+      width: 100%;
+      max-width: 1200px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      line-height: 1.6;
+      position: relative;
+      overflow: hidden;
+    }
+    .exercise-display {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .exercise-title {
+      font-weight: bold; 
+      margin-bottom: 0.5rem; 
+      font-size: 1.3rem; 
+      color: #333;
+    }
+    .exercise-display img {
+      max-width: 100%; 
+      height: auto; 
+      margin-bottom: 1rem; 
+      border: 1px solid #ddd; 
+      border-radius: 5px;
+      pointer-events: none; 
+      -webkit-user-drag: none; 
+    }
 
-        .action-btn i {
-            margin-left: 6px;
-            font-size: 16px;
-        }
+    /***********************
+     * Watermark Overlay (Responsive)
+     ***********************/
+    .watermark {
+      position: fixed;
+      top: 50%; 
+      left: 50%; 
+      transform: translate(-50%, -50%);
+      pointer-events: none; 
+      font-weight: lighter; 
+      color: #008080; 
+      white-space: nowrap; 
+      z-index: 1000;
+      user-select: none;
+      opacity: 0.1;
+      font-size: 8rem; /* Default for large screens */
+    }
+    /* Decrease watermark size for smaller screens */
+    @media (max-width: 1200px) {
+      .watermark {
+        font-size: 5rem;
+      }
+    }
+    @media (max-width: 768px) {
+      .watermark {
+        font-size: 3rem;
+      }
+    }
+    @media (max-width: 480px) {
+      .watermark {
+        font-size: 1.5rem;
+      }
+    }
 
-        .action-btn:hover {
-            background-color: #f0f2f5;
-            border-radius: 10px;
-            padding: 5px 10px;
-        }
+    /***********************
+     * Footer
+     ***********************/
+    footer {
+      background-color: #008080;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    }
+    footer a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+    }
+    footer a:hover {
+      color: #ffcc00;
+    }
+    footer a i {
+      margin-left: 5px;
+    }
 
-        .action-btn span {
-            margin-left: 6px;
-        }
-
-        /* Floating button for scrolling */
-        .scroll-btn {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 24px;
-            cursor: pointer;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease;
-        }
-
-        .scroll-btn:hover {
-            background-color: #0056b3;
-        }
-
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .gallery-container {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            }
-        }
-    </style>
-
-    <!-- Include FontAwesome for modern icons -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    /***********************
+     * Responsive Adjustments
+     ***********************/
+    @media (max-width: 768px) {
+      #sp {
+        width: 80%;
+        right: -80%;
+      }
+      #sp.open {
+        right: 0;
+      }
+      header h1 {
+        font-size: 1.6rem;
+      }
+      #tb {
+        font-size: 1.4rem;
+        padding: 0.4rem 0.6rem;
+      }
+      main {
+        margin: 0.5rem;
+        padding: 1rem;
+      }
+    }
+  </style>
 </head>
-<body>
-    <div class="gallery-container">
-        <!-- Example for page_1 -->
-        <div class="image-card">
-            <h3>bac math</h3>
-            <img src="images/page_1.jpg" alt="A4 Image 1">
-            <div class="bottom-bar">
-                <div class="action-btn">
-                    <i class="fas fa-share"></i>
-                    <span>Share</span>
-                </div>
-                <a href="images/page_1.jpg" download="page_1.jpg" class="action-btn">
-                    <i class="fas fa-download"></i>
-                    <span>Download</span>
-                </a>
-            </div>
-        </div>
 
-        <!-- Example for page_2 -->
-        <div class="image-card">
-            <h3>bac math</h3>
-            <img src="images/page_2.jpg" alt="A4 Image 2">
-            <div class="bottom-bar">
-                <div class="action-btn">
-                    <i class="fas fa-share"></i>
-                    <span>Share</span>
-                </div>
-                <a href="images/page_2.jpg" download="page_2.jpg" class="action-btn">
-                    <i class="fas fa-download"></i>
-                    <span>Download</span>
-                </a>
-            </div>
-        </div>
+<body oncontextmenu="return false"> <!-- Disables right-click -->
+  <!-- Watermark Overlay -->
+  <div class="watermark">Humble Math Dz  <br> Humble Math Dz <br> Humble Math Dz </div>
 
-        <!-- More images will be generated dynamically below... -->
-    </div>
+  <!-- Header -->
+  <header>
+    <h1>Humble Math Dz</h1>
+    <button id="tb">☰</button>
+  </header>
 
-    <!-- Floating button for scrolling -->
-    <button class="scroll-btn" id="scrollBtn" onclick="scrollPage()">
-        <i class="fas fa-arrow-down" id="scrollIcon"></i>
-    </button>
+  <!-- Side Panel -->
+  <div id="sp">
+    <h2>التمارين</h2>
+    <ul>
+      <li data-e="1">تمرين رقم 1</li>
+      <li data-e="2">تمرين رقم 2</li>
+      <li data-e="3">تمرين رقم 3</li>
+    </ul>
+  </div>
 
-    <script>
-        // Function to dynamically create image cards
-        function createImageCard(imageIndex) {
-            const imageCard = document.createElement('div');
-            imageCard.classList.add('image-card');
+  <!-- Main Content -->
+  <main id="mc">
+    <p>
+      مرحباً بكم في موقع <strong>Humble Math Dz</strong>. لقد قمنا بإضافة بعض إجراءات الأمان 
+      لمنع النسخ العشوائي، ومع ذلك نرجو احترام حقوق النشر. اختر تمريناً من القائمة وسيظهر 
+      محتواه والحل في هذا القسم.
+    </p>
+  </main>
 
-            const title = document.createElement('h3');
-            title.textContent = 'bac math';
+  <!-- Footer -->
+  <footer>
+    <a href="https://web.facebook.com/HumbleMathDz" target="_blank">
+      فيسبوك <i class="fab fa-facebook"></i>
+    </a>
+    <a href="https://www.youtube.com/@humblemathdz-f8j" target="_blank">
+      يوتيوب <i class="fab fa-youtube"></i>
+    </a>
+    <a href="https://t.me/humblemathdz" target="_blank">
+      تيليجرام <i class="fab fa-telegram"></i>
+    </a>
+  </footer>
 
-            const img = document.createElement('img');
-            img.src = `images/page_${imageIndex}.jpg`;
-            img.alt = `A4 Image ${imageIndex}`;
+  <!-- Minified / Obfuscated JavaScript (example) -->
+  <script>
+  (function(){
+    "use strict";
+    var btn=document.getElementById("tb"),
+        sp=document.getElementById("sp"),
+        listItems=document.querySelectorAll("#sp li"),
+        main=document.getElementById("mc");
+    
+    // Toggle side panel
+    btn.addEventListener("click",function(){sp.classList.toggle("open");});
 
-            const bottomBar = document.createElement('div');
-            bottomBar.classList.add('bottom-bar');
+    // Close side panel if user clicks outside
+    document.addEventListener("click",function(e){
+      if(sp.classList.contains("open")){
+        var inside=sp.contains(e.target),
+            toggle=btn.contains(e.target);
+        if(!inside && !toggle) sp.classList.remove("open");
+      }
+    });
 
-            const shareBtn = createActionBtn('Share', 'fas fa-share');
-            const downloadBtn = createActionBtn('Download', 'fas fa-download');
-            downloadBtn.href = `images/page_${imageIndex}.jpg`;
-            downloadBtn.download = `page_${imageIndex}.jpg`;
+    // Disable certain keyboard shortcuts
+    document.onkeydown=function(e){
+      if(e.keyCode===123 // F12
+        || (e.ctrlKey && e.shiftKey && (e.keyCode===73||e.keyCode===74))  // Ctrl+Shift+I/J
+        || (e.ctrlKey && (e.keyCode===83||e.keyCode===85||e.keyCode===80)) // Ctrl+S/U/P
+      ){return false;}
+    };
 
-            bottomBar.appendChild(shareBtn);
-            bottomBar.appendChild(downloadBtn);
+    // Example data
+    var data={
+      "1":{t:"تمرين رقم 1",e:["images/ex1_1.jpg"],s:["images/ex1_sol1.jpg"]},
+      "2":{t:"تمرين رقم 2",e:["images/ex2.jpg"],s:["images/ex2_sol1.png"]},
+      "3":{t:"تمرين رقم 3",e:["images/ex3_1.jpg"],s:["images/ex3_sol1.jpg"]}
+    };
 
-            imageCard.appendChild(title);
-            imageCard.appendChild(img);
-            imageCard.appendChild(bottomBar);
-
-            return imageCard;
+    // Load exercise
+    listItems.forEach(function(item){
+      item.addEventListener("click",function(){
+        var exNum=item.getAttribute("data-e"),
+            d=data[exNum];
+        if(d){
+          var exHtml="",solHtml="";
+          d.e.forEach(function(imgSrc,index){
+            exHtml+='<img src="'+imgSrc+'" alt="Exercise '+exNum+' Part '+(index+1)+'"/>';
+          });
+          d.s.forEach(function(imgSrc,index){
+            solHtml+='<img src="'+imgSrc+'" alt="Solution '+exNum+' Part '+(index+1)+'"/>';
+          });
+          main.innerHTML='<div class="exercise-display">'
+            +'<div class="exercise-title">'+d.t+'</div>'
+            +exHtml
+            +'<div class="exercise-title">الحل</div>'
+            +solHtml
+            +'</div>';
+        } else {
+          main.innerHTML="<p>لا توجد بيانات لهذا التمرين.</p>";
         }
-
-        function createActionBtn(text, iconClass) {
-            const btn = document.createElement('a');
-            btn.classList.add('action-btn');
-            const icon = document.createElement('i');
-            icon.className = iconClass;
-            const span = document.createElement('span');
-            span.textContent = text;
-            btn.appendChild(icon);
-            btn.appendChild(span);
-            return btn;
-        }
-
-        // JavaScript to dynamically generate image cards for 135 images
-        const galleryContainer = document.querySelector('.gallery-container');
-        for (let i = 1; i <= 135; i++) {
-            galleryContainer.appendChild(createImageCard(i));
-        }
-
-        // Scroll button functionality
-        let scrollingDown = true;
-        function scrollPage() {
-            const scrollIcon = document.getElementById('scrollIcon');
-
-            if (scrollingDown) {
-                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-                scrollIcon.classList.remove('fa-arrow-down');
-                scrollIcon.classList.add('fa-arrow-up');
-            } else {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                scrollIcon.classList.remove('fa-arrow-up');
-                scrollIcon.classList.add('fa-arrow-down');
-            }
-
-            scrollingDown = !scrollingDown;
-        }
-    </script>
+        sp.classList.remove("open");
+      });
+    });
+  })();
+  </script>
 </body>
 </html>
